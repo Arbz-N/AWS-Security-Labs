@@ -122,7 +122,7 @@
       --output text)
     echo "Detector ID: $DETECTOR_ID"
 
-Task 3 — Create RDS in Private Subnets:
+### Task 3 — Create RDS in Private Subnets:
     
     Step 3.1 — Create the DB subnet group:
     
@@ -179,7 +179,7 @@ Task 4 — View GuardDuty Findings:
     [INFO] Sample findings are clearly marked as SAMPLE in the GuardDuty console.
     They do not represent real threats in your account.
 
-Key Concepts
+### Key Concepts:
     
     Why two private subnets in different AZs?
     RDS requires a DB subnet group with subnets in at least two Availability Zones.
@@ -218,7 +218,7 @@ Key Concepts
     can be deleted. The IGW must be detached before it can be deleted. The VPC
     cannot be deleted while any of these resources still exist inside it.
 
-Cleanup:
+### Cleanup:
 
     See cleanup.sh. Run it from the same shell session where variables are still exported.
 
@@ -241,7 +241,7 @@ Cleanup:
     destroyed. Do not run cleanup on any database you want to keep.
 
 
-License:
+### License:
     
     MIT License. This lab is for educational purposes.
     Replace all placeholder values (your-region, your-account-id, passwords)
