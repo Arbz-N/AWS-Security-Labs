@@ -1,4 +1,4 @@
-Secure Private VPC with RDS and GuardDuty
+# Secure Private VPC with RDS and GuardDuty:
 
     Overview
     This lab builds a private, security-hardened AWS environment consisting of a custom
@@ -12,7 +12,7 @@ Secure Private VPC with RDS and GuardDuty
     GuardDuty monitoring CloudTrail, VPC Flow Logs, DNS logs, RDS login events, and S3 events
     Sample findings generated to verify GuardDuty is functioning before real threats occur
 
-Project Structure:
+## Project Structure:
 
     secure-vpc-rds-guardduty-lab/
     ├── README.md                  <- This file
@@ -22,7 +22,7 @@ Project Structure:
     ├── 04-verify-guardduty.sh     <- Sample findings + list findings
     └── cleanup.sh                 <- Full teardown in dependency order
 
-Prerequisites:
+## Prerequisites:
 
     Requirement          Details
     
@@ -32,7 +32,7 @@ Prerequisites:
     Permissions          EC2, RDS, GuardDuty, IAM
 
 
-Architecture:
+## Architecture:
 
         Region: your-region
           +-------------------------------------------------------------------+
@@ -73,7 +73,7 @@ Architecture:
           |   - S3_DATA_EVENTS   (protection plan)     |
           +-------------------------------------------+
 
-Step-by-Step Tasks:
+## Step-by-Step Tasks:
 
     Prerequisites
     
@@ -84,7 +84,7 @@ Step-by-Step Tasks:
     export AWS_REGION="your-region"
     export PROJECT="SecureECSLab"
 
-Task 1 — Create the Private VPC:
+### Task 1 — Create the Private VPC:
 
     See 01-create-vpc.sh — this script creates all networking resources in order.
     
@@ -106,7 +106,7 @@ Task 1 — Create the Private VPC:
 
     bash 01-create-vpc.sh
 
-Task 2 — Enable GuardDuty:
+### Task 2 — Enable GuardDuty:
 
     See 02-enable-guardduty.sh.
     What gets enabled:
