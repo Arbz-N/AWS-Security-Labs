@@ -39,3 +39,89 @@ Prerequisites:
     AWS CLI              Configured with admin credentials
     IAM permissions      Full IAM, Control Tower, and Organizations access
 
+Architecture:
+
+    Management Account
+      +------------------------------------------------------------------+
+      |                                                                  |
+      |  Root Account                                                    |
+      |    MFA: Virtual MFA (Authenticator app)  [REQUIRED FIRST]        |
+      |                                                                  |
+      |  IAM Users                                                       |
+      |    arbaz      MFA: Virtual MFA                                   |
+      |    developer  MFA: Virtual MFA                                   |
+      |                                                                  |
+      |  ForceMFAPolicy (attached to users / group)                      |
+      |    Allow: IAM self-service MFA setup actions                     |
+      |    Deny:  ALL other actions if MFA not present                   |
+      |                                                                  |
+      |  Password Policy                                                 |
+      |    Min length: 14   Symbols: required   Rotation: 90 days        |
+      |    Reuse prevention: 12 passwords                                |
+      +------------------------------------------------------------------+
+    
+      AWS Control Tower (landing zone)
+      +------------------------------------------------------------------+
+      |  Management Account (existing)                                   |
+      |  Log Archive Account  (new — dedicated for all logs)             |
+      |  Audit Account        (new — security team access)               |
+      |                                                                  |
+      |  Guardrails (mandatory + strongly recommended):                  |
+      |    Detect: MFA not enabled for IAM users                         |
+      |    Detect: Public S3 access allowed                              |
+      |    Detect: Root account MFA missing                              |
+      |    Prevent: Root access key creation                             |
+      |                                                                  |
+      |  Account Factory                                                 |
+      |    dev-workloads account — auto-enrolled with baseline           |
+      +------------------------------------------------------------------+
+    
+      MFA Login Flow:
+        User -> AWS Console Login Page
+             -> Username + Password
+             -> MFA Prompt (6-digit TOTP)
+             -> TOTP validated by AWS
+             -> Session token with MultiFactorAuthPresent=true
+             -> Full access granted
+
+Step-by-Step Tasks:
+
+Task 1 — Enable MFA for the Root Account
+
+    [WARN] Complete this task before any other task. The root account has
+    unrestricted access to everything in the AWS account. Protecting it with
+    MFA is the single most important security action.
+
+    Steps (AWS Console only — root MFA cannot be set via CLI):
+
+        Sign in to the AWS Console as root (email + password).
+        Top right corner: click the account name → Security credentials.
+        Find the Multi-factor authentication (MFA) section.
+        Click Assign MFA device.
+        Select Authenticator app (Virtual MFA).
+        Device name: RootAccountMFA → Next.
+        Open Google Authenticator on your phone → + → Scan QR code.
+        Scan the QR code shown on screen.
+        Enter MFA code 1 from the app, wait 30 seconds, enter MFA code 2.
+        Click Add MFA.
+
+    [WARN] Screenshot the QR code or copy the secret key and store it securely
+    offline. If you lose the phone, this backup is the only way to recover access.
+    
+    Verify:
+    
+        Sign out of the console.
+        Sign back in: email → password → 6-digit MFA code from the app.
+        Successful login confirms MFA is working.
+
+Task 2 — Enable MFA for IAM Users:
+
+    Steps (AWS Console):
+
+        Go to IAM → Users and click a user (e.g. arbaz).
+        Click the Security credentials tab.
+        In the Multi-factor authentication section, click Assign MFA device.
+        Device name: arbaz-mfa-device → select Authenticator app → Next.
+        Scan the QR code with Google Authenticator.
+        Enter two consecutive 6-digit codes → Add MFA.
+
