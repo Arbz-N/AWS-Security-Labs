@@ -125,3 +125,27 @@ Task 2 — Enable MFA for IAM Users:
         Scan the QR code with Google Authenticator.
         Enter two consecutive 6-digit codes → Add MFA.
 
+    Verify via CLI:
+
+    bash 01-check-mfa-status.sh
+    
+    The script lists all users and runs list-mfa-devices to confirm each user
+    has a device registered.
+
+Task 3 — Enforce MFA via IAM Policy:
+
+    See mfa-enforce-policy.json and 02-create-mfa-policy.sh.
+
+    bash 02-create-mfa-policy.sh
+
+    What the policy does:
+    AllowViewAccountInfo   : Allow viewing account password policy and MFA device list
+    AllowManageOwnMFA      : Allow each user to set up their own MFA device
+    DenyAllExceptMFASetup  : Deny every other action when MultiFactorAuthPresent=false
+
+    The DenyAllExceptMFASetup statement uses NotAction — it applies to
+    every action in AWS except the MFA setup actions listed. This means a user
+    without MFA enabled can only set up their own MFA and nothing else.
+
+    [INFO] Attach this policy to a group rather than individual users so it
+    applies automatically to all new users added to the group.
