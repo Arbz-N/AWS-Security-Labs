@@ -149,3 +149,28 @@ Task 3 — Enforce MFA via IAM Policy:
 
     [INFO] Attach this policy to a group rather than individual users so it
     applies automatically to all new users added to the group.
+
+Task 4 — Set Up AWS Control Tower:
+
+    Prerequisites before starting:
+    
+        AWS Organizations must be enabled in the management account.
+        The management account must not already have Config or CloudTrail customizations
+        that would conflict with Control Tower baseline setup.
+
+    Steps (AWS Console — 30 to 60 minutes):
+
+        Go to AWS Console → Control Tower → Set up landing zone.
+        Home Region: select your primary region (e.g. your-region).
+        Log Archive Account: provide a unique email address (e.g. log-archive@yourcompany.com).
+        Audit Account: provide a unique email address (e.g. audit@yourcompany.com).
+        Review all settings → click Set up landing zone.
+
+
+    [WARN] Do not close the browser during setup. The process takes 30 to 60 minutes.
+
+    Expected result after setup:
+
+    Management Account    (existing)   enrolled
+    Log Archive Account   (new)        all CloudTrail and Config logs aggregated here
+    Audit Account         (new)        read-only access for security team
