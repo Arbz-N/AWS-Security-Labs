@@ -211,3 +211,38 @@ Task 6 — Provision a New Account via Account Factory:
         Security baseline pre-installed
 
 Task 7 — Set IAM Account Password Policy:
+    
+    See 03-set-password-policy.sh.
+
+        bash 03-set-password-policy.sh
+        The script enforces:
+        Minimum length          : 14 characters
+        Require symbols         : yes
+        Require numbers         : yes
+        Require uppercase       : yes
+        Require lowercase       : yes
+        Max password age        : 90 days
+        Password reuse prevent  : 12 previous passwords
+        Users change password   : allowed
+        Hard expiry             : disabled (locked out = false)
+
+Task 8 — Verify MFA Status Across All Users:
+
+See 04-generate-credential-report.sh.
+
+    bash 04-generate-credential-report.sh
+    
+        The script generates an IAM credential report and extracts the mfa_active
+        column for every user. Any user showing false does not have MFA enabled.
+
+    Manual login test:
+        
+        Sign out of the AWS Console.
+        Sign in: Account ID → Username → Password → Next.
+        The MFA prompt should appear: Enter authentication code.
+        Enter the 6-digit code from the Authenticator app.
+        Successful login confirms the full MFA flow is working end to end.
+
+Key Concepts:
+
+
