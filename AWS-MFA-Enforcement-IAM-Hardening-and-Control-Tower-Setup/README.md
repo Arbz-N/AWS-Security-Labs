@@ -28,3 +28,14 @@ Project Structure:
     ├── 04-generate-credential-report.sh <- MFA audit across all users
     └── cleanup.sh                     <- Remove MFA devices, policy, and detach
 
+Prerequisites:
+
+    Requirement          Details
+    
+    AWS Account          Management or root account
+    Root credentials     Email + password for the management account
+    MFA app              Google Authenticator or compatible TOTP app on a phone
+    AWS Organizations    Must be enabled before Control Tower setup
+    AWS CLI              Configured with admin credentials
+    IAM permissions      Full IAM, Control Tower, and Organizations access
+
