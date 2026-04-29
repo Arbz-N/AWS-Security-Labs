@@ -174,3 +174,40 @@ Task 4 — Set Up AWS Control Tower:
     Management Account    (existing)   enrolled
     Log Archive Account   (new)        all CloudTrail and Config logs aggregated here
     Audit Account         (new)        read-only access for security team
+
+Task 5 — Enable Guardrails:
+
+    Steps (AWS Console — Control Tower → Guardrails):
+    
+        Enable the following strongly recommended guardrails:
+        [OK] Detect whether MFA is enabled for IAM users
+        [OK] Detect whether public access to S3 is allowed
+        [OK] Detect whether root account has MFA enabled
+        [OK] Disallow creation of access keys for root user
+
+    Verify via CLI:
+    bash# Replace the target ARN with your Organizations root ARN
+
+        aws controltower list-enabled-controls \
+          --target-identifier "arn:aws:organizations::your-account-id:root/r-xxxx" \
+          --output table
+
+Task 6 — Provision a New Account via Account Factory:
+
+    Steps (AWS Console — Control Tower → Account Factory → Create account):
+
+        Account name    : dev-workloads
+        Account email   : dev@yourcompany.com
+        Display name    : Development Account
+        IAM Identity    : dev-admin
+        OU              : (select an existing OU or create a Custom OU)
+
+    Click Create account. The process takes 15 to 20 minutes.
+    
+        The new account is automatically enrolled with:
+        CloudTrail enabled
+        AWS Config rules configured
+        Guardrails applied
+        Security baseline pre-installed
+
+Task 7 — Set IAM Account Password Policy:
