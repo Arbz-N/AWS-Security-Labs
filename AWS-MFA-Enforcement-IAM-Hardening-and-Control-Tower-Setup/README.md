@@ -192,7 +192,7 @@
           --target-identifier "arn:aws:organizations::your-account-id:root/r-xxxx" \
           --output table
 
-Task 6 — Provision a New Account via Account Factory:
+### Task 6 — Provision a New Account via Account Factory:
 
     Steps (AWS Console — Control Tower → Account Factory → Create account):
 
@@ -210,7 +210,7 @@ Task 6 — Provision a New Account via Account Factory:
         Guardrails applied
         Security baseline pre-installed
 
-Task 7 — Set IAM Account Password Policy:
+### Task 7 — Set IAM Account Password Policy:
     
     See 03-set-password-policy.sh.
 
