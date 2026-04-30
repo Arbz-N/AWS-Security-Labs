@@ -295,6 +295,7 @@ Key Concepts:
 Cleanup:
 
     bash cleanup.sh
+
         The script performs:
         1. Deactivate MFA device for the user
            2. Delete the virtual MFA device
@@ -302,13 +303,13 @@ Cleanup:
            4. Delete the ForceMFAPolicy
            Control Tower removal (manual — AWS Console):
 
-[WARN] Control Tower landing zone deletion is irreversible and complex.
-Complete these steps before deleting the landing zone:
+    [WARN] Control Tower landing zone deletion is irreversible and complex.
+    Complete these steps before deleting the landing zone:
 
-Unenroll all accounts created via Account Factory.
-Manually close or unenroll the Log Archive and Audit accounts.
-Go to Control Tower → Landing zone settings → Delete landing zone.
-Confirm the deletion.
-
-Deleting the landing zone does not close the sub-accounts. Those must be
-closed separately through AWS Organizations or the Accounts console.
+    Unenroll all accounts created via Account Factory.
+    Manually close or unenroll the Log Archive and Audit accounts.
+    Go to Control Tower → Landing zone settings → Delete landing zone.
+    Confirm the deletion.
+    
+    Deleting the landing zone does not close the sub-accounts. Those must be
+    closed separately through AWS Organizations or the Accounts console.
