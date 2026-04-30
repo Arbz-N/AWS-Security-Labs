@@ -17,7 +17,7 @@
         Guardrails detecting MFA gaps, public S3, and root access key creation
         Account Factory creating new accounts with security baseline pre-applied
 
-Project Structure:
+## Project Structure:
 
     AWS-MFA-Enforcement-IAM-Hardening-and-Control-Tower-Setup/
     ├── README.md                      <- This file
@@ -28,7 +28,7 @@ Project Structure:
     ├── 04-generate-credential-report.sh <- MFA audit across all users
     └── cleanup.sh                     <- Remove MFA devices, policy, and detach
 
-Prerequisites:
+## Prerequisites:
 
     Requirement          Details
     
@@ -39,7 +39,7 @@ Prerequisites:
     AWS CLI              Configured with admin credentials
     IAM permissions      Full IAM, Control Tower, and Organizations access
 
-Architecture:
+## Architecture:
 
     Management Account
       +------------------------------------------------------------------+
