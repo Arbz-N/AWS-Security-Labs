@@ -226,9 +226,9 @@
         Users change password   : allowed
         Hard expiry             : disabled (locked out = false)
 
-Task 8 — Verify MFA Status Across All Users:
+### Task 8 — Verify MFA Status Across All Users:
 
-See 04-generate-credential-report.sh.
+    See 04-generate-credential-report.sh.
 
     bash 04-generate-credential-report.sh
     
@@ -243,7 +243,7 @@ See 04-generate-credential-report.sh.
         Enter the 6-digit code from the Authenticator app.
         Successful login confirms the full MFA flow is working end to end.
 
-Key Concepts:
+### Key Concepts:
 
 
     Why MFA on root first?
@@ -292,7 +292,7 @@ Key Concepts:
         The mfa_active column is the fastest way to identify users without MFA across
         the entire account without checking each user individually.
 
-Cleanup:
+### Cleanup:
 
     bash cleanup.sh
 
@@ -314,7 +314,7 @@ Cleanup:
     Deleting the landing zone does not close the sub-accounts. Those must be
     closed separately through AWS Organizations or the Accounts console.
 
-License:
+### License:
 
     MIT License. This lab is for educational purposes.
     Replace all placeholder values (your-account-id, your-region,
