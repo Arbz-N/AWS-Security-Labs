@@ -84,9 +84,9 @@
              -> Session token with MultiFactorAuthPresent=true
              -> Full access granted
 
-Step-by-Step Tasks:
+## Step-by-Step Tasks:
 
-Task 1 — Enable MFA for the Root Account
+### Task 1 — Enable MFA for the Root Account
 
     [WARN] Complete this task before any other task. The root account has
     unrestricted access to everything in the AWS account. Protecting it with
@@ -114,7 +114,7 @@ Task 1 — Enable MFA for the Root Account
         Sign back in: email → password → 6-digit MFA code from the app.
         Successful login confirms MFA is working.
 
-Task 2 — Enable MFA for IAM Users:
+### Task 2 — Enable MFA for IAM Users:
 
     Steps (AWS Console):
 
@@ -132,7 +132,7 @@ Task 2 — Enable MFA for IAM Users:
     The script lists all users and runs list-mfa-devices to confirm each user
     has a device registered.
 
-Task 3 — Enforce MFA via IAM Policy:
+### Task 3 — Enforce MFA via IAM Policy:
 
     See mfa-enforce-policy.json and 02-create-mfa-policy.sh.
 
@@ -150,7 +150,7 @@ Task 3 — Enforce MFA via IAM Policy:
     [INFO] Attach this policy to a group rather than individual users so it
     applies automatically to all new users added to the group.
 
-Task 4 — Set Up AWS Control Tower:
+### Task 4 — Set Up AWS Control Tower:
 
     Prerequisites before starting:
     
@@ -175,7 +175,7 @@ Task 4 — Set Up AWS Control Tower:
     Log Archive Account   (new)        all CloudTrail and Config logs aggregated here
     Audit Account         (new)        read-only access for security team
 
-Task 5 — Enable Guardrails:
+### Task 5 — Enable Guardrails:
 
     Steps (AWS Console — Control Tower → Guardrails):
     
