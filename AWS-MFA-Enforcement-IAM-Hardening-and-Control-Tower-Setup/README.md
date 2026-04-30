@@ -313,3 +313,10 @@ Cleanup:
     
     Deleting the landing zone does not close the sub-accounts. Those must be
     closed separately through AWS Organizations or the Accounts console.
+
+License:
+
+    MIT License. This lab is for educational purposes.
+    Replace all placeholder values (your-account-id, your-region,
+    arbaz, your-key-pair, email addresses) before sharing or committing.
+    Never commit real account IDs, ARNs, or credentials to version control.
