@@ -24,7 +24,7 @@ USERS=$(aws iam list-users \
 # An empty response from list-mfa-devices means MFA is not configured.
 for USER in $USERS; do
   MFA_DEVICES=$(aws iam list-mfa-devices \
-
+    --user-name "${USER}" \
     --query 'MFADevices[].SerialNumber' \
     --output text 2>/dev/null || true)
 
