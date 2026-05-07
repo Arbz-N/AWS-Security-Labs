@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # 02-enable-guardduty.sh
 # Enables GuardDuty and activates the RDS and S3 protection plans.
 #
