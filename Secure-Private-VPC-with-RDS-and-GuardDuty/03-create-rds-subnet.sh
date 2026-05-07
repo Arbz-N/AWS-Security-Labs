@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
 # 03-create-rds-subnet.sh
 # Creates the DB subnet group that RDS requires before instance creation.
 # The group must reference subnets in at least two Availability Zones.
