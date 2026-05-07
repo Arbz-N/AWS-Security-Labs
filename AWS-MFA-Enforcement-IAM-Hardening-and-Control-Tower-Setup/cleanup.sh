@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin
 # cleanup.sh
 # Removes the MFA device, virtual MFA device, policy attachment, and policy.
 #
