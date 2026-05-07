@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
 # 04-verify-guardduty.sh
 # Generates sample GuardDuty findings and lists current findings.
 # Used to confirm the detector is operational before real threats occur.
