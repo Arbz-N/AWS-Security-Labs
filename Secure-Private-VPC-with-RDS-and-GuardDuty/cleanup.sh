@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
 # cleanup.sh
 # Deletes all lab resources in reverse dependency order.
 # Run from the same shell session where variables were exported,
