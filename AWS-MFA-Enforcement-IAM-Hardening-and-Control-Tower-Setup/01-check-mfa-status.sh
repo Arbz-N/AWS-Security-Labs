@@ -25,7 +25,7 @@ USERS=$(aws iam list-users \
 for USER in $USERS; do
   MFA_DEVICES=$(aws iam list-mfa-devices \
     --user-name "${USER}" \
-    --query 'MFADevices[].SerialNumber' \
+    --query 'MFADevices[].SerialNumber'
     --output text 2>/dev/null || true)
 
   if [ -z "${MFA_DEVICES}" ]; then
