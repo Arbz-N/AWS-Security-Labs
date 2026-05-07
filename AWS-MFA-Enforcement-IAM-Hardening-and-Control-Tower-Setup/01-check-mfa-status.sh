@@ -20,7 +20,6 @@ USERS=$(aws iam list-users \
   --query 'Users[].UserName' \
   --output text)
 
-# Iterate over each username and check for registered MFA devices.
 # An empty response from list-mfa-devices means MFA is not configured.
 for USER in $USERS; do
   MFA_DEVICES=$(aws iam list-mfa-devices \
