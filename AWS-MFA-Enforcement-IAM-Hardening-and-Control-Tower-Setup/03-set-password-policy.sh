@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin
 # 03-set-password-policy.sh
 # Applies a strong account-wide IAM password policy.
 # This policy applies to all IAM users in the account.
