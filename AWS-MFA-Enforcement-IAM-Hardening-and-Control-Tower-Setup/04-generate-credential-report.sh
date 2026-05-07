@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin
 # 04-generate-credential-report.sh
 # Generates the IAM credential report and extracts the mfa_active column
 # for every user in the account.
