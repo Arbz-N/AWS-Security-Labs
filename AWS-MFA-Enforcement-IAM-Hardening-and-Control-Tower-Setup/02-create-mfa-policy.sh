@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin
 # 02-create-mfa-policy.sh
 # Creates the ForceMFAPolicy and attaches it to the specified IAM user.
 # The policy denies all AWS actions unless the session includes a valid MFA token.
