@@ -1,4 +1,5 @@
-#!/usr/bin
+#!/bin/bash
+
 # 01-check-mfa-status.sh
 
 # Lists all IAM users and checks which ones have MFA devices registered.
